@@ -33,16 +33,16 @@ It demonstrates how core ITSM modules (Incident, Request, and Task) can be custo
   - Example response:
     ```json
     {
-      "records": [
-        {
-          "number": "INC0000060",
-          "short_description": "Unable to connect to email",
-          "priority": "1",
-          "state": "2",
-          "assigned_to": "John Doe",
-          "opened_at": "2024-08-10 09:12:33",
-          "sys_id": "1c741bd70b2322007518478d83673af3"
-        }
+    "records": [
+            {
+                "number": "INC0000015",
+                "short_description": "I can't launch my VPN client since the last software update",
+                "priority": "1",
+                "state": "2",
+                "assigned_to": "Don Goodliffe",
+                "opened_at": "2025-03-11 23:38:46",
+                "sys_id": "46e2fee9a9fe19810049b49dee0daf58"
+            }
       ]
     }
     ```
@@ -52,19 +52,19 @@ It demonstrates how core ITSM modules (Incident, Request, and Task) can be custo
 ## 🖼️ Screenshots
 
 - SLA Definition  
-  ![SLA Definition](screenshots/sla/Active SLAs.png)
+  ![SLA Definition](screenshots/sla/Active_SLAs.png)
 
 - Scripted REST API  
-  ![Scripted REST API](screenshots/scripted_rest_api/Retrieve P1 Incidents.png)
+  ![Scripted REST API](screenshots/scripted_rest_api/Retrieve_P1_Incidents.png)
 
 - Catalog Script & UI Policy  
-  ![Catalog Script and UI Policy](screenshots/catalog_script_ui_policy/Catalog Script and UI Policy.png)
+  ![Catalog Script and UI Policy](screenshots/catalog_script_ui_policy/Catalog_Script_and_UI_Policy.png)
 
 - Background Script (GlideRecord)  
-  ![Background Script](screenshots/background_script/Background Script to copy records.png)
+  ![Background Script](screenshots/background_script/Background_Script_to_copy_records.png) 
 
 - ACLs for High-Priority Incidents  
-  ![ACL](screenshots/acl/ACL on u_custom_incident.png)
+  ![ACL](screenshots/acl/ACL_on_u_custom_incident.png)
 
 - More Screenshots can be found in individual folders
 
