@@ -1,28 +1,99 @@
 # ITSM Customization & Process Automation
 
-## Overview
+## 📌 Overview
 
-This project demonstrates how I configured SLAs, ACLs, and REST APIs in ServiceNow
-to automate ITSM workflows.
+This project showcases **ITSM process automation in ServiceNow** by implementing SLAs, access controls, client scripts, and scripted REST APIs to improve incident management efficiency.  
+It demonstrates how core ITSM modules (Incident, Request, and Task) can be customized for real-world service delivery needs.
 
-## Features
+---
 
-- SLA definition for Incident & Request
-- Access Control Lists (ACLs) for role-based security
-- GlideRecord scripts for automated priority updates
-- Catalog Item Script and Catalog Item UI Policy
-- Scripted REST API for fetching P1 incidents
+## 🚀 Features
 
-## Screenshots
+- **SLA Definitions**
 
-![SLA Definition](screenshots/sla)
-![Scripted REST API](screenshots/scripted_rest_api)
-![Catalog Script and UI Policy](screenshots/scripted_rest_api)
-![Scripts - Background](screenshots/background_script)
-![ACL](screenshots/acl)
+  - Configured SLA metrics (e.g., P1 Incident must be resolved within 4 hours).
+  - Attached SLAs to Incident and Request modules with pause/resume conditions.
 
-## How to Import
+- **Access Control (ACLs)**
 
-1. Download the update set from `/updateset/sys_remote_update_set_293d610483672a107ffb1630ceaad377.xml`
-2. Navigate to **System Update Sets > Retrieved Update Sets** in ServiceNow.
+  - Restricted updates of high-priority incidents to **Support Group Managers**.
+  - Enforced role-based security for Incident & Task records.
+
+- **Catalog Customization**
+
+  - **Catalog Client Script**: Auto-fills “Requested For” with the logged-in user (default but editable).
+  - **UI Policy**: Dynamically shows/hides fields based on Category (e.g., Hardware vs. Software).
+
+- **Automation with GlideRecord**
+
+  - Background Script to mass update incident priorities based on urgency/impact.
+
+- **Scripted REST API**
+  - Created a REST API resource `/get_all_p1_incidents` to fetch all **open P1 incidents** in JSON format.
+  - Example response:
+    ```json
+    {
+      "records": [
+        {
+          "number": "INC0000060",
+          "short_description": "Unable to connect to email",
+          "priority": "1",
+          "state": "2",
+          "assigned_to": "John Doe",
+          "opened_at": "2024-08-10 09:12:33",
+          "sys_id": "1c741bd70b2322007518478d83673af3"
+        }
+      ]
+    }
+    ```
+
+---
+
+## 🖼️ Screenshots
+
+- SLA Definition  
+  ![SLA Definition](screenshots/sla/Active SLAs.png)
+
+- Scripted REST API  
+  ![Scripted REST API](screenshots/scripted_rest_api/Retrieve P1 Incidents.png)
+
+- Catalog Script & UI Policy  
+  ![Catalog Script and UI Policy](screenshots/catalog_script_ui_policy/Catalog Script and UI Policy.png)
+
+- Background Script (GlideRecord)  
+  ![Background Script](screenshots/background_script/Background Script to copy records.png)
+
+- ACLs for High-Priority Incidents  
+  ![ACL](screenshots/acl/ACL on u_custom_incident.png)
+
+- More Screenshots can be found in individual folders
+
+---
+
+## 🛠 Tech Stack
+
+- **ServiceNow ITSM** (Orlando release or higher)
+- **GlideRecord / Server-side scripting**
+- **Catalog Client Scripts & UI Policies**
+- **Scripted REST APIs**
+- **Update Sets (XML exports)**
+
+---
+
+## 📥 How to Import
+
+1. Download the update set from:  
+   `/updateset/sys_remote_update_set_293d610483672a107ffb1630ceaad377.xml`
+2. Navigate to **System Update Sets > Retrieved Update Sets** in your ServiceNow instance.
 3. Import and Preview before committing.
+4. Commit to apply all configurations.
+   > ⚠️ Requires **admin role** on your ServiceNow instance.
+
+---
+
+## 📌 Deliverable
+
+A working ITSM customization showcasing **automation, access control, and API integrations** in ServiceNow.  
+This project demonstrates how a developer can enhance ITSM processes to align with organizational requirements.
+
+---
